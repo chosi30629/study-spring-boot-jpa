@@ -7,13 +7,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JpashopApplication {
 
     public static void main(String[] args) {
-
-        Hello hello = new Hello();
-        hello.setData("hello");
-        String data = hello.getData();
-        System.out.println("data = " + data);
-
         SpringApplication.run(JpashopApplication.class, args);
     }
 
 }
+
+/*
+    터미널에서 의존관계 확인
+    : ./gradlew dependencies
+
+ */
