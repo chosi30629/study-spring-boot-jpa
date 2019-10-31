@@ -11,9 +11,3 @@ public class JpashopApplication {
     }
 
 }
-
-/*
-    터미널에서 의존관계 확인
-    : ./gradlew dependencies
-
- */
