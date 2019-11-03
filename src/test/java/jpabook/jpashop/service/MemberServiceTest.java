@@ -24,7 +24,6 @@ public class MemberServiceTest {
     @Autowired EntityManager em;
 
     @Test
-//    @Rollback(false)
     public void 회원가입() throws Exception {
         // given
         Member member = new Member();
@@ -34,7 +33,6 @@ public class MemberServiceTest {
         Long savedId = memberService.join(member);
 
         // then
-//        em.flush();
         assertEquals(member, memberRepository.findOne(savedId));
     }
 
