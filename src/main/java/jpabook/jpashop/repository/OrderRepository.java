@@ -88,4 +88,14 @@ public class OrderRepository {
                 .setMaxResults(100)
                 .getResultList();   // 페이징 불가, 경고 뜨면서 메모리에서 해줌, 성능 최악
     }
+
+    public List<Order> findAllWithMemberDelivery(int offset, int limit) {
+        return em.createQuery(
+                "select o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d", Order.class)
+                .setFirstResult(offset)
+                .setMaxResults(limit)
+                .getResultList();
+    }
 }
