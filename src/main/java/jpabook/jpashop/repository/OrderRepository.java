@@ -77,4 +77,15 @@ public class OrderRepository {
                 .getResultList();
     }
 
+    public List<Order> findAllWithItem() {
+        return em.createQuery(
+                "select distinct o from Order o" +  // 생성되는 sql db 에서 실행하면 4개가 나옴. jpql 에서 id 가 같으면 중복 제거
+                    " join fetch o.member m" +
+                    " join fetch o.delivery d" +
+                    " join fetch o.orderItems oi" +
+                    " join fetch oi.item i", Order.class)
+                .setFirstResult(1)
+                .setMaxResults(100)
+                .getResultList();   // 페이징 불가, 경고 뜨면서 메모리에서 해줌, 성능 최악
+    }
 }
